@@ -28,6 +28,16 @@ class FirstNonRepeatingStream{
         return '-';
          }
     }
+    public void Display(){
+        System.out.println("Stream: ");
+        for (Map.Entry<Character,Integer> entry : hashMap.entrySet()) {
+                    int count= entry.getValue();
+                    while(count!=0){
+                    System.out.print(entry.getKey()+" , ");
+                    count--;
+                    }
+            }
+    }
 }
 
 public class Question2 {
@@ -39,5 +49,7 @@ public class Question2 {
       s.add('k');
       s.add('b');
       System.out.println("Non Repeating element: "+ s.getFirstNonRepeating());
+
+      s.Display();
     }
 }
