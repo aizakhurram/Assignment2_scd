@@ -1,4 +1,3 @@
-import java.io.*;
 import java.util.EmptyStackException;
 import java.util.Scanner;
 class Node<T> {
@@ -104,8 +103,6 @@ public class Main{
                     System.out.println("Program Exited!");
                     scanner.close();
                     return;
-                default:
-                    System.out.println("Invalid operation.");
             }
         }while(true);
     }
