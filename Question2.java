@@ -1,5 +1,6 @@
 import java.util.Map;
 import java.util.HashMap;
+import java.util.TreeMap;
 class FirstNonRepeatingStream{
     public Map<Character, Integer> hashMap;
     public FirstNonRepeatingStream(){
@@ -17,13 +18,15 @@ class FirstNonRepeatingStream{
          }
     }
     public char getFirstNonRepeating(){
-        for (Map.Entry<Character,Integer> entry : hashMap.entrySet()) {
-            if(entry.getValue()==1){
-                return entry.getKey();
-            }
-
+         TreeMap<Character, Integer> sortedMap = new TreeMap<>(hashMap);
+        Character firstKey = sortedMap.firstKey();
+        int firstValue = sortedMap.get(firstKey);
+        if(firstValue==1){
+            return firstKey;
         }
+         else{
         return '-';
+         }
     }
 }
 
