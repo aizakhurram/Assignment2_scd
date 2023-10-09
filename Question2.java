@@ -33,7 +33,7 @@ class FirstNonRepeatingStream{
         for (Map.Entry<Character,Integer> entry : hashMap.entrySet()) {
                     int count= entry.getValue();
                     while(count!=0){
-                    System.out.print(entry.getKey()+" , ");
+                    System.out.print(entry.getKey()+" ");
                     count--;
                     }
             }
@@ -44,12 +44,14 @@ public class Question2 {
     public static void main(String[] args){
       
       FirstNonRepeatingStream s= new FirstNonRepeatingStream();
-      s.add('b');
+      s.add('a');
       s.add('k');
       s.add('k');
       s.add('b');
-      System.out.println("Non Repeating element: "+ s.getFirstNonRepeating());
-
       s.Display();
+
+      System.out.println("\nFirst Non Repeating element: "+ s.getFirstNonRepeating());
+
+      
     }
 }
