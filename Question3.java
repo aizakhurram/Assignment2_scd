@@ -6,10 +6,10 @@ public class Question3 {
         }
         int y=0;
         for(int i=1; i<list.size(); i++){
-            int[] interval= list.get(y);
+            int[] current= list.get(y);
             int[] next=list.get(i);
-            if(interval[interval.length-1]>=next[0]){
-                interval[interval.length-1]=Math.max(next[next.length-1],interval[interval.length-1]);
+            if(current[current.length-1]>=next[0]){
+                current[current.length-1]=Math.max(next[next.length-1],current[current.length-1]);
             }
             else{
             y++;
