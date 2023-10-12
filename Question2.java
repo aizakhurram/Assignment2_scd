@@ -38,8 +38,8 @@ class FirstNonRepeatingStream{
     
     public char getFirstNonRepeating(){
          
-        Character firstKey = sortedHashMap.isEmpty() ? null : sortedHashMap.keySet().iterator().next();
-        int firstValue = firstKey != null ? sortedHashMap.get(firstKey) : 0;
+        Character firstKey =  sortedHashMap.keySet().iterator().next();
+        int firstValue =  sortedHashMap.get(firstKey);
 
         if (firstValue == 1) {
             return firstKey;
@@ -64,9 +64,9 @@ public class Question2 {
       
       FirstNonRepeatingStream s= new FirstNonRepeatingStream();
       s.add('a');
-      s.add('a');
-      s.add('k');
       s.add('b');
+      s.add('b');
+     // s.add('b');
       s.sortMap();
       s.Display();
 

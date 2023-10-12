@@ -4,8 +4,8 @@ public class Question3 {
         if (list == null) {
             return;
         }
-        int y=0;
-        for(int i=1; i<list.size(); i++){
+        
+        for(int i=1, y=0; i<list.size(); i++){
             int[] current= list.get(y);
             int[] next=list.get(i);
             if(current[current.length-1]>=next[0]){
