@@ -1,10 +1,17 @@
 import java.util.Map;
+import java.util.Comparator;
 import java.util.HashMap;
-import java.util.TreeMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.ArrayList;
 class FirstNonRepeatingStream{
     public Map<Character, Integer> hashMap;
+    public LinkedHashMap<Character, Integer> sortedHashMap;
+
     public FirstNonRepeatingStream(){
          hashMap = new HashMap<>();
+         sortedHashMap = new LinkedHashMap<>();
+       
     }
     public void add(char c){
         int count=1;
@@ -16,17 +23,29 @@ class FirstNonRepeatingStream{
           else{
               hashMap.put(c, count);
          }
+
     }
-    public char getFirstNonRepeating(){
-         TreeMap<Character, Integer> sortedMap = new TreeMap<>(hashMap);
-        Character firstKey = sortedMap.firstKey();
-        int firstValue = sortedMap.get(firstKey);
-        if(firstValue==1){
-            return firstKey;
+    public void sortMap(){
+
+      List<Map.Entry<Character, Integer>> entries = new ArrayList<>(hashMap.entrySet());
+
+        entries.sort(Comparator.comparingInt(Map.Entry::getValue));
+
+        for (Map.Entry<Character, Integer> entry : entries) {
+            sortedHashMap.put(entry.getKey(), entry.getValue());
         }
-         else{
-        return '-';
-         }
+    }
+    
+    public char getFirstNonRepeating(){
+         
+        Character firstKey = sortedHashMap.isEmpty() ? null : sortedHashMap.keySet().iterator().next();
+        int firstValue = firstKey != null ? sortedHashMap.get(firstKey) : 0;
+
+        if (firstValue == 1) {
+            return firstKey;
+        } else {
+            return '-';
+        }
     }
     public void Display(){
         System.out.println("Stream: ");
@@ -45,9 +64,10 @@ public class Question2 {
       
       FirstNonRepeatingStream s= new FirstNonRepeatingStream();
       s.add('a');
-      s.add('k');
+      s.add('a');
       s.add('k');
       s.add('b');
+      s.sortMap();
       s.Display();
 
       System.out.println("\nFirst Non Repeating element: "+ s.getFirstNonRepeating());
